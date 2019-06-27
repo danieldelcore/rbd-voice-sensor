@@ -36,12 +36,16 @@ function App() {
 }
 ```
 
-## Voice Commands
+## Voice Commands 🗣
 Try using these voice commands:
-- "Lift Princess Bubblegum"
-- "Move up"
-- "Move down"
-- "Drop"
+
+> Lift Princess Bubblegum
+
+> Move up
+
+> Move down
+
+> Drop
 
 ## Resources 📖
 
