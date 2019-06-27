@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/rbd-logo-with-controller.jpg" alt="react beautiful dnd logo" />
+  <img src="static/rbd-logo-with-controller.jpg" alt="react beautiful dnd logo" />
 </p>
 <h1 align="center">rbd-voice-sensor</h1>
 

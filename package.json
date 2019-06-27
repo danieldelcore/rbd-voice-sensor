@@ -1,0 +1,72 @@
+{
+    "name": "rbd-voice-sensor",
+    "version": "1.0.0",
+    "description": "A voice sensor for react-beautiful-dnd, built with the Web Speech API 💁‍♀️",
+    "main": "./dist/main.js",
+    "scripts": {
+        "pre-push": "npm run lint && npm run test",
+        "start": "npm run dev",
+        "dev": "start-storybook -p 9000 -c .storybook/",
+        "predeploy-storybook": "build-storybook -s static",
+        "deploy-storybook": "storybook-to-ghpages",
+        "build": "rm -rf dist && webpack src/index.js",
+        "lint": "eslint ./src/ ./.storybook/ --config .eslintrc.js --ext tsx,ts",
+        "lint:fix": "npm run lint -- --fix",
+        "preversion": "npm run lint && npm run test",
+        "version": "npm run build",
+        "postversion": "git push && git push --tags",
+        "postpublish": "npm run deploy-storybook"
+    },
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/danieldelcore/rbd-voice-sensor.git"
+    },
+    "keywords": [
+        "dnd",
+        "drag and drop",
+        "drag",
+        "drop",
+        "hooks",
+        "rbd",
+        "react-beautiful-dnd",
+        "react",
+        "reorder",
+        "reorderable",
+        "sensor",
+        "sortable",
+        "speech",
+        "voice"
+    ],
+    "author": "Daniel Del Core",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/danieldelcore/rbd-voice-sensor/issues"
+    },
+    "homepage": "https://github.com/danieldelcore/rbd-voice-sensor#readme",
+    "peerDependencies": {
+        "react": ">=16.8.5"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.5",
+        "@storybook/react": "^5.1.9",
+        "@storybook/storybook-deployer": "^2.8.1",
+        "babel-loader": "^8.0.6",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "eslint": "^6.0.1",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.14.2",
+        "eslint-plugin-react-hooks": "^1.6.1",
+        "prettier": "^1.18.2",
+        "react": "^16.8.5",
+        "react-beautiful-dnd": "^12.0.0-alpha.6",
+        "trousers": "^1.2.0",
+        "webpack": "^4.35.0",
+        "webpack-cli": "^3.3.5"
+    }
+}
