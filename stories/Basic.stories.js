@@ -1,10 +1,17 @@
 import { storiesOf } from '@storybook/react';
 import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { useStyleCollector, css } from 'trousers';
+import { styleCollector, useStyles } from 'trousers';
 
 import voiceSensor from '../src';
 import { quotes, DragList } from '../fixtures';
+
+const style = styleCollector('container').element`
+    padding-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  `;
 
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -14,7 +21,8 @@ const reorder = (list, startIndex, endIndex) => {
     return result;
 };
 
-const DragContainer = () => {
+const DragContainer = props => {
+    const classNames = useStyles(style);
     const [state, setState] = useState({
         quotes,
     });
@@ -40,13 +48,19 @@ const DragContainer = () => {
     };
 
     return (
-        <DragDropContext
-            sensors={[voiceSensor]}
-            onDragStart={onDragStart}
-            onDragEnd={onDragEnd}
-        >
-            <DragList listId="list" title="My List" listItems={state.quotes} />
-        </DragDropContext>
+        <div className={classNames}>
+            <DragDropContext
+                sensors={[voiceSensor]}
+                onDragStart={onDragStart}
+                onDragEnd={onDragEnd}
+            >
+                <DragList
+                    listId="list"
+                    title="My List"
+                    listItems={state.quotes}
+                />
+            </DragDropContext>
+        </div>
     );
 };
 
