@@ -36,6 +36,13 @@ function App() {
 }
 ```
 
+## Voice Commands
+Try using these voice commands:
+- "Lift Princess Bubblegum"
+- "Move up"
+- "Move down"
+- "Drop"
+
 ## Resources 📖
 
 -   [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
