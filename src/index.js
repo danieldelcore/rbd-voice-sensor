@@ -21,7 +21,10 @@ const parseCommand = transcript =>
 function voiceSensor(api) {
     let speech;
 
-    const [command, setCommand] = useState('');
+    const [command, setCommand] = useState({
+        text: '',
+        count: 0,
+    });
     const [drag, setDrag] = useState(null);
 
     useEffect(() => {
@@ -34,7 +37,10 @@ function voiceSensor(api) {
 
         speech.onresult = event => {
             console.log('onresult');
-            setCommand(event.results[event.results.length - 1][0].transcript);
+            setCommand({
+                text: event.results[event.results.length - 1][0].transcript,
+                count: (command.count += 1),
+            });
         };
 
         speech.onerror = event => {
@@ -59,10 +65,11 @@ function voiceSensor(api) {
     }, []);
 
     useEffect(() => {
-        const currentCommand = parseCommand(command.toLowerCase());
+        const currentCommand = parseCommand(command.text.toLowerCase());
 
         switch (currentCommand) {
             case commands.lift:
+                console.log('action', commands.lift);
                 const preDrag = api.tryGetLock('1');
                 if (!preDrag) return;
                 setDrag(preDrag.snapLift());
@@ -84,9 +91,10 @@ function voiceSensor(api) {
                 setDrag(null);
                 break;
             default:
+                console.log('BREAK', currentCommand);
                 break;
         }
-    }, [command]);
+    }, [command.text, command.count]);
 
     console.log(command);
 }
