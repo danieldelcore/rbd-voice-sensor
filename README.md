@@ -2,10 +2,11 @@
   <img src="static/rbd-logo-with-controller.jpg" alt="react beautiful dnd logo" />
 </p>
 <h1 align="center">rbd-voice-sensor</h1>
-
 <div align="center">
 
 A **voice** sensor for [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd), built with the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+
+**[🎮 Play with it here 🎮](https://danieldelcore.github.io/rbd-voice-sensor)**
 
 </div>
 
