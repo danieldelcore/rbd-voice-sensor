@@ -3,6 +3,7 @@ import React from 'react';
 const ListItem = ({ item, dragProvided, dragSnapshot }) => {
     return (
         <div
+            id={item.id}
             key={item.id}
             href={item.author.url}
             // isDragging={dragSnapshot.isDragging}

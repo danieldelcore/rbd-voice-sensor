@@ -10,10 +10,6 @@ const TranscriptView = () => {
     });
 
     useEffect(() => {
-        function reset() {
-            speech.start();
-        }
-
         const speech = new webkitSpeechRecognition() || speechRecognition();
         speech.continuous = true;
         speech.interimResults = true;
@@ -32,8 +28,6 @@ const TranscriptView = () => {
                     interimTranscript += event.results[i][0].transcript;
                 }
             }
-            console.log('finalTranscript', finalTranscript);
-            console.log('interimTranscript', interimTranscript);
 
             setState({
                 finalTranscript,
@@ -46,8 +40,10 @@ const TranscriptView = () => {
         };
 
         speech.onend = () => {
-            reset();
+            // speech.start();
         };
+
+        return () => speech.stop();
     }, []);
 
     return (

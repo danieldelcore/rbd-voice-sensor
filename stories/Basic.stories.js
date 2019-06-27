@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useStyleCollector, css } from 'trousers';
 
+import voiceSensor from '../src';
 import { quotes, DragList } from '../fixtures';
 
 const reorder = (list, startIndex, endIndex) => {
@@ -39,7 +40,11 @@ const DragContainer = () => {
     };
 
     return (
-        <DragDropContext onDragStart={onDragStart} onDragEnd={onDragEnd}>
+        <DragDropContext
+            sensors={[voiceSensor]}
+            onDragStart={onDragStart}
+            onDragEnd={onDragEnd}
+        >
             <DragList listId="list" title="My List" listItems={state.quotes} />
         </DragDropContext>
     );
