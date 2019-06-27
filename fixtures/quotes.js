@@ -9,7 +9,7 @@ const jake: Author = {
     url: 'http://adventuretime.wikia.com/wiki/Jake',
     avatarUrl: jakeImg,
     colors: {
-        soft: '#FF8B00',
+        soft: '#FFFAE6',
         hard: '#FFC400',
     },
 };

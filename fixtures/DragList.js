@@ -1,35 +1,31 @@
 import React from 'react';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
+import { useStyles, styleCollector } from 'trousers';
 
-import { ListItem } from './';
+import { DragListInner } from './';
+
+const style = styleCollector('droplist').element`
+    padding-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  `;
 
 const DragList = ({ listId, title, listItems }) => {
+    const classNames = useStyles(style);
+
     return (
-        <Droppable droppableId={listId}>
-            {(dropProvided, dropSnapshot) => (
-                <React.Fragment>
-                    {title}
-                    <div ref={dropProvided.innerRef}>
-                        {listItems.map((item, index) => (
-                            <Draggable
-                                key={item.id}
-                                draggableId={item.id}
-                                index={index}
-                            >
-                                {(dragProvided, dragSnapshot) => (
-                                    <ListItem
-                                        item={item}
-                                        dragProvided={dragProvided}
-                                        dragSnapshot={dragSnapshot}
-                                    />
-                                )}
-                            </Draggable>
-                        ))}
-                        {dropProvided.placeholder}
-                    </div>
-                </React.Fragment>
-            )}
-        </Droppable>
+        <div className={classNames}>
+            <Droppable droppableId={listId}>
+                {(dropProvided, dropSnapshot) => (
+                    <DragListInner
+                        listItems={listItems}
+                        dropProvided={dropProvided}
+                        dropSnapshot={dropSnapshot}
+                    />
+                )}
+            </Droppable>
+        </div>
     );
 };
 

@@ -25,8 +25,6 @@ function voiceSensor(api) {
     const [drag, setDrag] = useState(null);
 
     useEffect(() => {
-        console.log('MOUNT');
-
         speech = new webkitSpeechRecognition() || speechRecognition();
         speech.continuous = true;
         speech.interimResults = false;
@@ -36,13 +34,10 @@ function voiceSensor(api) {
 
         speech.onresult = event => {
             console.log('onresult');
-
             setCommand(event.results[event.results.length - 1][0].transcript);
         };
 
         speech.onerror = event => {
-            console.log('onerror');
-
             console.error(event.error);
         };
 
