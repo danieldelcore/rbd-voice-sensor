@@ -4,7 +4,7 @@ import princessImg from '../static/avatars/princess.png';
 import jakeImg from '../static/avatars/jake.png';
 
 const jake: Author = {
-    id: '1',
+    id: 1,
     name: 'Jake',
     url: 'http://adventuretime.wikia.com/wiki/Jake',
     avatarUrl: jakeImg,
@@ -15,7 +15,7 @@ const jake: Author = {
 };
 
 const BMO: Author = {
-    id: '2',
+    id: 2,
     name: 'BMO',
     url: 'http://adventuretime.wikia.com/wiki/BMO',
     avatarUrl: bmoImg,
@@ -26,7 +26,7 @@ const BMO: Author = {
 };
 
 const finn: Author = {
-    id: '3',
+    id: 3,
     name: 'Finn',
     url: 'http://adventuretime.wikia.com/wiki/Finn',
     avatarUrl: finnImg,
@@ -37,7 +37,7 @@ const finn: Author = {
 };
 
 const princess: Author = {
-    id: '4',
+    id: 4,
     name: 'Princess bubblegum',
     url: 'http://adventuretime.wikia.com/wiki/Princess_Bubblegum',
     avatarUrl: princessImg,
@@ -49,65 +49,55 @@ const princess: Author = {
 
 const quotes = [
     {
-        id: '1',
+        id: 'finn',
         content: 'Sometimes life is scary and dark',
         author: BMO,
     },
     {
-        id: '2',
+        id: 'jake',
         content:
             'Sucking at something is the first step towards being sorta good at something.',
         author: jake,
     },
     {
-        id: '3',
-        content: "You got to focus on what's real, man",
-        author: jake,
-    },
-    {
-        id: '4',
-        content: 'Is that where creativity comes from? From sad biz?',
-        author: finn,
-    },
-    {
-        id: '5',
+        id: 'bob',
         content: 'Homies help homies. Always',
         author: finn,
     },
     {
-        id: '6',
+        id: 'princess bubblegum',
         content: 'Responsibility demands sacrifice',
         author: princess,
     },
     {
-        id: '7',
+        id: 'princess bannana',
         content:
             "That's it! The answer was so simple, I was too smart to see it!",
         author: princess,
     },
     {
-        id: '8',
+        id: 'harry',
         content: 'People make mistakes. It’s a part of growing up',
         author: finn,
     },
     {
-        id: '9',
+        id: 'smith',
         content:
             "Don't you always call sweatpants 'give up on life pants,' Jake?",
         author: finn,
     },
     {
-        id: '10',
+        id: 'ava',
         content: 'I should not have drunk that much tea!',
         author: princess,
     },
     {
-        id: '11',
+        id: 'lisa',
         content: 'Please! I need the real you!',
         author: princess,
     },
     {
-        id: '12',
+        id: 'jill',
         content: "Haven't slept for a solid 83 hours, but, yeah, I'm good.",
         author: princess,
     },

@@ -18,6 +18,16 @@ const parseCommand = transcript =>
         return accum;
     }, '');
 
+const parseCommandMeta = (command, transcript) => {
+    switch (command) {
+        case commands.lift:
+            return { itemId: transcript.split(commands.lift)[1].trim() || '' };
+            break;
+        default:
+            break;
+    }
+};
+
 function voiceSensor(api) {
     let speech;
 
@@ -65,12 +75,14 @@ function voiceSensor(api) {
     }, []);
 
     useEffect(() => {
-        const currentCommand = parseCommand(command.text.toLowerCase());
+        const transcript = command.text.toLowerCase();
+        const currentCommand = parseCommand(transcript);
+        const commandMeta = parseCommandMeta(currentCommand, transcript);
 
         switch (currentCommand) {
             case commands.lift:
-                console.log('action', commands.lift);
-                const preDrag = api.tryGetLock('1');
+                console.log('action', commands.lift, commandMeta);
+                const preDrag = api.tryGetLock(commandMeta.itemId);
                 if (!preDrag) return;
                 setDrag(preDrag.snapLift());
                 break;
