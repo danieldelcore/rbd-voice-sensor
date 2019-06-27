@@ -16,7 +16,7 @@ A sensor is a React Hook (or plain ol' function) that gives you access to [RBD's
 
 _Why Voice?_
 
-Imagine dragging and dropping Jira tickets in a standup using only your voice. Or improving accessiblity for people with a physical disability.
+Make drag and drop experiences beautiful for people with physical disabilities. 
 
 ## Get started 🏗
 
